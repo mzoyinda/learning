@@ -8,39 +8,57 @@ const databaseConn = require('../models/databaseConn');
 courseOfStudyRoute.use(databaseConn.handler);
 
 
-courseOfStudyRoute.get('/courseOfStudy', (req,res,next) => {
+
+courseOfStudyRoute.get('/courseOfStudy', async  (req,res,next) => {
     let courseOfStudy = req.query.courseOfStudy;
-    // let courseOfStudy = "Chemical Engineering";
 
+    const results = [];
 
-    databaseConn.dbVar.query(`SELECT * FROM courses JOIN rolescourses ON courses.courseId = rolescourses.courseID JOIN roles ON rolescourses.roleID = roles.roleID`, function (err,result,fields){
+    await databaseConn.dbVar.query(`SELECT * FROM courses JOIN rolescourses ON courses.courseId = rolescourses.courseID JOIN roles ON rolescourses.roleID = roles.roleID`, function (err,result,fields){
         if(err) throw err;
 
-        const results = [];
+        
+        
         for (let index = 0; index < result.length; index++) {
             if(courseOfStudy.replace(/\s+/g, '').toLowerCase() === result[index].courseTitle.replace(/\s+/g, '').toLowerCase()) {
                 results.push(result[index]);
             }
         }
 
+        // let answer = Object.fromEntries(results);
+        // let answer = {};
+
+        // answer = JSON.stringify(results);
+        // console.log(JSON.stringify(results));
+        // console.log(answer);
+        // return (res.json({
+        //     results
+        // })
+
+        // );
+
         console.log(results);
 
-        res.json({
-            "results": {
-                results
-            }
-        });
-
-        return;
+        if(results.length === 0) {
+            return (
+                res.json({
+                    results: "This course does not exist on our database"
+            })
     
+            );
+        } else {
+            return (
+                res.json({
+                    results
+            })
+    
+            );
+        }
 
     });
 
-    res.json({
-        results: "This course does not exist on our database"
-    });
 
-    return;
+
     
 });
 

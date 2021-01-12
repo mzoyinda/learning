@@ -1,7 +1,7 @@
 // All package dependencies
 
 let express = require('express');
-// let session = require('express-session');
+let session = require('express-session');
 let bodyParser = require('body-parser');
 // let path = require('path');
 let PORT = process.env.PORT || 3000;
@@ -21,12 +21,12 @@ const app = express();
 
 
 //  All necessary middlewares
-// app.use(session({
-//     secret: 'secret',
-//     resave: true,
-//     saveUninitialized: true
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
 
-// }));
+}));
 
 app.use(bodyParser.json());
 
