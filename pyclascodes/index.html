@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>PyClas | Engineering Education</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/pyclas.css">
+    <link rel="stylesheet" type="text/css" href="/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/pyclasfavicon.png">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous">
+    </script>
+
+</head>
+
+<body>
+    <nav>
+        <a href="/"><img class="brand" src="/pyclaslogo.jpg" alt="pyclaslogo"></a>
+        <div class="mainMenu">
+            <span id="toggle-bar">&#9776;</span>
+            <ul id="myMainmenu">
+                <li><a href="./aboutUs/">About Us</a></li>
+                <li>
+                    <a id="button" href="./demo/demo1">Try Our Demo</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div>
+        <div id="content">
+            <h1>Get Your First Job Seamlessly with a Learning Program that Works</h1>
+            <div class="courseSection">
+                <!-- <form action="/courseOfStudy "> -->
+                <div class="courseSearch ">
+                    <input type="text " name="courseOfStudy" list="courses" class="courseOfStudyText" placeholder="Enter course of study to see career options " onchange="optionRedirect() ">
+                    <datalist id="courses">
+                            <option value="Aerospace Engineering"></option>
+                            <option value="Agricultural Engineering"></option>
+                            <option value="Chemical Engineering"></option>
+                            <option value="Civil Engineering"></option>
+                            <option value="Computer Engineering"></option>
+                            <option value="Electrical and Electronics Engineering"></option>
+                            <option value="Industrial Engineering"></option>
+                            <option value="Materials Engineering"></option>
+                            <option value="Mechanical Engineering"></option>
+                            <option value="Mining Engineering"></option>
+                            <option value="Nuclear Engineering"></option>
+                            <option value="Petroleum and Gas Engineering"></option>
+                            <option value="Systems Engineering"></option>        
+                        </datalist>
+                </div>
+                <button class="formButton" id="go">Go</button>
+                <!-- </form> -->
+
+            </div>
+        </div>
+        <div class="heroSection">
+            <img class="heroImg" src=" /setting.jpg " alt=" " srcset=" ">
+            <div class="heroContent">
+                <ul>
+                    <li><img id="square" src=" /dot.png " alt="banner " /><img src="/checkMark.png " alt="banner " /> Learn engineering with industry and real world examples
+                    </li>
+                    <li>
+                        <img id="square" src="/dot.png " alt="banner " /><img src="/checkMark.png " alt="banner " /> Understand your career options and clarify your career goals
+                    </li>
+                    <li><img id="square" src="/dot.png " alt="banner " /><img src="/checkMark.png " alt="banner " />Connect with employers
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="demo"> <a id="demoButton" href="./demo/demo1">Demo</a></div>
+
+        <div>
+            <form action="/mailingList" , method="POST" class="subscribeForm" onSubmit="alert('Thank you for your feedback.');">
+                <label for="reach ">Subscribe to receive updates</label>
+                <div class="formSection ">
+                    <div>
+                        <input type="email" , name="email" placeholder="Email address">
+                        <input type="text" name="category" list="categories" placeholder="Select your category">
+                        <datalist id="categories">
+                            <option value="Students"></option>
+                            <option value="Educators"></option>
+                            <option value="Parents"></option>
+                            <option value="Employers"></option>
+                        </datalist>
+                    </div>
+                    <button class="formButtonMail" type="submit">Submit</button>
+                </div>
+
+            </form>
+        </div>
+        <footer>
+            <div class="footer">
+                <ul class="footerNav1">
+                    <li> &copy; 2020 PyClas </li>
+                    <li><a href="./aboutUs/ ">About Us</a></li>
+                    <li><a href="./contactUs/ ">Contact Us</a></li>
+                </ul>
+                <div class="footerNav2 ">
+                    <a href="https://twitter.com/PyClas" class="fa fa-twitter fa-10x "></a>
+                </div>
+            </div>
+        </footer>
+        <script src="/mobileMenu.js "></script>
+        <script src="/goButton.js "></script>
+    </div>
+
+</body>
+
+</html>
