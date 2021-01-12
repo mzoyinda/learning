@@ -14,7 +14,7 @@ courseOfStudyRoute.get('/courseOfStudy', async  (req,res,next) => {
 
     const results = [];
 
-    await databaseConn.dbVar.query(`SELECT * FROM courses JOIN rolescourses ON courses.courseId = rolescourses.courseID JOIN roles ON rolescourses.roleID = roles.roleID`, function (err,result,fields){
+    await databaseConn.dbVar.query(`SELECT courseTitle, roleTitle, roleDescription, applicableAreas FROM courses JOIN rolescourses ON courses.courseId = rolescourses.courseID JOIN roles ON rolescourses.roleID = roles.roleID`, function (err,result,fields){
         if(err) throw err;
 
         
