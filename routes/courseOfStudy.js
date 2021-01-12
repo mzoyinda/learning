@@ -25,18 +25,6 @@ courseOfStudyRoute.get('/courseOfStudy', async  (req,res,next) => {
             }
         }
 
-        // let answer = Object.fromEntries(results);
-        // let answer = {};
-
-        // answer = JSON.stringify(results);
-        // console.log(JSON.stringify(results));
-        // console.log(answer);
-        // return (res.json({
-        //     results
-        // })
-
-        // );
-
         console.log(results);
 
         if(results.length === 0) {
@@ -49,7 +37,7 @@ courseOfStudyRoute.get('/courseOfStudy', async  (req,res,next) => {
         } else {
             return (
                 res.json({
-                    results
+                   results
             })
     
             );
