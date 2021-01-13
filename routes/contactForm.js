@@ -22,8 +22,6 @@ const databaseConn = require('../models/databaseConn');
 
 //  Middle ware
 contactFormRoute.use(databaseConn.handler);
-contactFormRoute.use(bodyParser.urlencoded({extended: true}));
-contactFormRoute.use(bodyParser.json());
 
 contactFormRoute.post('/contactForm', (req,res) => {
 
@@ -59,12 +57,17 @@ try {    // const smtpTrans = nodemailer.createTransport("smtps://contactpyclas%
         if (error) {
 
           console.log(error);
-          res.send("Failed to send");
-        }
-        else {
 
-          res.send("Sent successfully");
+          return res.json({
+            result: "Not sent"
+          })
+
+        } else {
+          return res.json({
+            result: "Sent successfully!"
+          })
         }
+
       })
 
 
