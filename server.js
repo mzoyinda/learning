@@ -9,6 +9,7 @@ let PORT = process.env.PORT || 3000;
 //  All routes
 const courseOfStudyRoute = require('./routes/courseOfStudy');
 const contactForm = require('./routes/contactForm');
+const login = require('./routes/login');
 
 
 
@@ -37,11 +38,23 @@ app.use((req,res,next) => {
     next();    
 });
 
+app.get('/', (req,res,next) => {
+    // Health Check
+    res.send('PyClas Backend Up And Running');
+});
 
 app.use(databaseConn.handler);
 app.use(courseOfStudyRoute);
 app.use(contactForm);
+app.use(login);
 
+app.get("*", (req, res) => {
+    // Determines if the entered route is an unregistered one
+	res.status(404).json({
+		error: 404,
+		message: "The resource you requested does not exist."
+	});
+});
 
 
 // Listening port
