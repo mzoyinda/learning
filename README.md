@@ -1,4 +1,5 @@
 # PyClas-Backend
+
 The backend for [our website](https://www.pyclas.com) .
 
 ## Installation
@@ -10,16 +11,13 @@ The backend for [our website](https://www.pyclas.com) .
 4. Should be running on localhost:3000
 ```
 
-## Endpoints 
+## Endpoints
 
 1. /courseOfStudy?courseOfStudy=Chemical%20Engineering
 2. /contactForm
-
 
 ## Images of Postman Test
 
 ![Image of Testing CourseOfStudy Endpoint](https://github.com/PyClas/PyClas-Backend/blob/master/assets/courseOfStudyEndpoint.png)
 
 ![Image of Testing ContactForm Endpoint](https://github.com/PyClas/PyClas-Backend/blob/master/assets/contactFormEndpoint.png)
-
-
