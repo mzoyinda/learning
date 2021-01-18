@@ -10,6 +10,7 @@ let PORT = process.env.PORT || 3000;
 const courseOfStudyRoute = require("./routes/courseOfStudy");
 const contactForm = require("./routes/contactForm");
 const login = require("./routes/login");
+const signUp = require("./routes/signUp");
 
 // Database Connection Route
 const databaseConn = require("./models/databaseConn");
@@ -47,6 +48,15 @@ app.use(databaseConn.handler);
 app.use(courseOfStudyRoute);
 app.use(contactForm);
 app.use(login);
+app.use(signUp);
+
+app.use((error, req, res, next) => {
+  console.log(error);
+  const status = error.statusCode || 500;
+  const message = error.message;
+  const data = error.data;
+  res.status(status).json({message: message, data:data});
+})
 
 app.get("*", (req, res) => {
   // Determines if the entered route is an unregistered one
