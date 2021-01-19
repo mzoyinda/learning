@@ -17,6 +17,7 @@ The backend for [our website](https://www.pyclas.com) .
 2. /contactForm
 3. /SignUp
 4. /login
+5. /logout
 
 ## Images of Postman Test
 
