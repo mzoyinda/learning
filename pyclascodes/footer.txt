@@ -1,1 +1,0 @@
-document.write('<footer><div class="footer"><ul class="footerNav1"><li> &copy; 2020 PyClas </li><li><a href="../aboutUs/">About Us</a></li><li><a href="../contactUs/">Contact Us</a></li></ul><div class="footerNav2 "><a href="https://twitter.com/PyClas" class="fa fa-twitter fa-10x "></a></div></div></footer>')

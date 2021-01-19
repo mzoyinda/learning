@@ -16,6 +16,7 @@ The backend for [our website](https://www.pyclas.com) .
 1. /courseOfStudy?courseOfStudy=Chemical%20Engineering
 2. /contactForm
 3. /SignUp
+4. /login
 
 ## Images of Postman Test
 

@@ -1,1 +1,0 @@
- document.write('<header><nav class="top"><a href="/"><img class="brand" src="/pyclaslogo.jpg" alt="pyclaslogo"></a><a href="./demo1.html" class=" navButton "> Demo Case Study</a></nav></header>')
