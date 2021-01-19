@@ -11,7 +11,7 @@ const courseOfStudyRoute = require("./routes/courseOfStudy");
 const contactForm = require("./routes/contactForm");
 const login = require("./routes/login");
 const signUp = require("./routes/signUp");
-
+const logout = require("./routes/logout");
 // Database Connection Route
 const databaseConn = require("./models/databaseConn");
 
@@ -49,6 +49,7 @@ app.use(courseOfStudyRoute);
 app.use(contactForm);
 app.use(login);
 app.use(signUp);
+app.use(logout);
 
 app.use((error, req, res, next) => {
   console.log(error);
