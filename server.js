@@ -1,10 +1,10 @@
 // All package dependencies
 
-let express = require("express");
-let session = require("express-session");
-let bodyParser = require("body-parser");
-// let path = require('path');
-let PORT = process.env.PORT || 3000;
+const express = require("express");
+const session = require("express-session");
+const bodyParser = require("body-parser");
+const PORT = process.env.PORT || 3000;
+const cors = require('cors');
 
 //  All routes
 const courseOfStudyRoute = require("./routes/courseOfStudy");
@@ -20,15 +20,16 @@ const databaseConn = require("./models/databaseConn");
 const app = express();
 
 // CORS
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, PATCH, DELETE"
-  );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
+app.use(cors());
+// app.use((req, res, next) => {
+//   res.setHeader("Access-Control-Allow-Origin", "*");
+//   res.setHeader(
+//     "Access-Control-Allow-Methods",
+//     "GET, POST, PUT, PATCH, DELETE"
+//   );
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+//   next();
+// });
 
 //  All necessary middlewares
 app.use(
@@ -39,8 +40,9 @@ app.use(
   })
 );
 
+
 app.use(bodyParser.json());
-app.use(isAuth);
+// app.use(isAuth);
 
 
 app.get("/", (req, res, next) => {
