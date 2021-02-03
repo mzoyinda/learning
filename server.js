@@ -49,7 +49,7 @@ app.get("/", (req, res, next) => {
 });
 
 app.use(databaseConn.handler);
-app.use(courseOfStudyRoute, isAuth);
+app.use(courseOfStudyRoute);
 app.use(contactForm);
 app.use(login);
 app.use(signUp);
