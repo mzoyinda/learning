@@ -29,7 +29,7 @@ router.put(
       .custom(async (email) => {
         const value = await isEmailInUse(email);
         if (value) {
-          throw new Error("Email already exists!!!");
+          throw new Error("Email already exists!");
         }
       })
       .withMessage("Invalid email address!"),
@@ -42,6 +42,7 @@ router.put(
     const username = req.body.name;
     const password = req.body.psw;
     const email = req.body.email;
+
     const hash = await bcrypt.hashSync(password, 10);
 
     let account = { username: username, hash: hash, email: email };

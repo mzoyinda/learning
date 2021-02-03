@@ -12,11 +12,23 @@ const contactForm = require("./routes/contactForm");
 const login = require("./routes/login");
 const signUp = require("./routes/signUp");
 const logout = require("./routes/logout");
+const isAuth = require("./middleware/is-auth");
 // Database Connection Route
 const databaseConn = require("./models/databaseConn");
 
 // Create an express instance
 const app = express();
+
+// CORS
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, PATCH, DELETE"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
 
 //  All necessary middlewares
 app.use(
@@ -28,16 +40,8 @@ app.use(
 );
 
 app.use(bodyParser.json());
+app.use(isAuth);
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, PATCH, DELETE"
-  );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  next();
-});
 
 app.get("/", (req, res, next) => {
   // Health Check
@@ -45,11 +49,12 @@ app.get("/", (req, res, next) => {
 });
 
 app.use(databaseConn.handler);
-app.use(courseOfStudyRoute);
+app.use(courseOfStudyRoute, isAuth);
 app.use(contactForm);
 app.use(login);
 app.use(signUp);
 app.use(logout);
+
 
 app.use((error, req, res, next) => {
   console.log(error);

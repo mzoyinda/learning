@@ -4,9 +4,6 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const router = express.Router();
 
-// router.get("/login", (req, res, next) => {
-//   console.log(req.get("Cookie"));
-// });
 
 router.post("/login", (req, res, next) => {
   const email = req.body.email;
