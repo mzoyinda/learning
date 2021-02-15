@@ -17,7 +17,7 @@ mails.post('/mailingList',
       .normalizeEmail()
       .trim()
       .custom(async (email) => {
-        const value = await isEmailInUse(email);
+        const value = await isEmailInUse(mail.email);
         if (value) {
           throw new Error("This email already exists on our mailing list");
         }
