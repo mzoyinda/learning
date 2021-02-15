@@ -22,7 +22,7 @@ mails.post('/mailingList', async (req,res,next) => {
         return res.status(200).json({
             message: 'Successfully added to mailing List'
           });
-    } else if (!mail || (!mail.Category && mail.email) || (!mail.email && mail.Category)) {
+    } else if (!mail || (mail.email === '' && mail.Category === '') || (mail.email === '') || (mail.Category === '') || (!mail.Category && mail.email) || (!mail.email && mail.Category)) {
         return res.status(200).json({
             message: 'Please enter Email Address and Course'
           });
