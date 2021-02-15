@@ -9,6 +9,7 @@ const cors = require('cors');
 //  All routes
 const courseOfStudyRoute = require("./routes/courseOfStudy");
 const contactForm = require("./routes/contactForm");
+const mailingList = require("./routes/mailingList");
 const login = require("./routes/login");
 const signUp = require("./routes/signUp");
 const logout = require("./routes/logout");
@@ -21,15 +22,6 @@ const app = express();
 
 // CORS
 app.use(cors());
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader(
-//     "Access-Control-Allow-Methods",
-//     "GET, POST, PUT, PATCH, DELETE"
-//   );
-//   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-//   next();
-// });
 
 //  All necessary middlewares
 app.use(
@@ -53,6 +45,7 @@ app.get("/", (req, res, next) => {
 app.use(databaseConn.handler);
 app.use(courseOfStudyRoute);
 app.use(contactForm);
+app.use(mailingList);
 app.use(login);
 app.use(signUp);
 app.use(logout);
