@@ -39,7 +39,7 @@ async (req,res,next) => {
     if (email && Category) {
         let sql = 'INSERT INTO mailinglist SET ? ';
         let account = { Category: course, email: email };
-        databaseConn.dbVar.query(sql, mail, (err,result) => {
+        databaseConn.dbVar.query(sql, account, (err,result) => {
             if(err) console.log(err.code);
             console.log(result);        
         });
