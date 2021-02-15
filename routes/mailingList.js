@@ -17,7 +17,7 @@ mails.post('/mailingList',
       .normalizeEmail()
       .trim()
       .custom(async (email) => {
-        const value = await isEmailInUse(mail.email);
+        const value = await isEmailInUse(email);
         if (value) {
           throw new Error("This email already exists on our mailing list");
         }
@@ -32,11 +32,13 @@ mails.post('/mailingList',
     
 async (req,res,next) => {
     
-    let mail = {email: req.body.email, Category: req.body.course};
 
-    if (mail.email && mail.Category) {
+    let email = req.body.email;
+    let course = req.body.course;
+
+    if (email && Category) {
         let sql = 'INSERT INTO mailinglist SET ? ';
-
+        let account = { Category: course, email: email };
         databaseConn.dbVar.query(sql, mail, (err,result) => {
             if(err) console.log(err.code);
             console.log(result);        
@@ -45,7 +47,7 @@ async (req,res,next) => {
         return res.status(200).json({
             message: 'Successfully added to mailing List'
           });
-    } else if (!mail || (mail.email === '' && mail.Category === '') || (mail.email === '') || (mail.Category === '') || (!mail.Category && mail.email) || (!mail.email && mail.Category)) {
+    } else if ( (email === '' && Category === '') || (email === '') || (Category === '') || (!Category && email) || (!email && Category)) {
         return res.status(200).json({
             message: 'Please enter Email Address and Course'
           });
